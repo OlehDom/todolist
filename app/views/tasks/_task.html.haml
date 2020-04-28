@@ -4,7 +4,6 @@
       %p.done_task
         = link_to (image_tag 'check'), done_project_task_path(@project, task.id), method: :patch
         %stike
-
           = task.name
     - else
       = link_to (image_tag 'check'), undone_project_task_path(@project, task.id), method: :patch
@@ -16,7 +15,6 @@
     \|
     = link_to project_task_path(@project, task.id), method: :delete do 
       = image_tag 'delete'
-
 
 
 -# = form_for [@project, @project.tasks.build] do |f|

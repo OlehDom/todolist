@@ -6,8 +6,5 @@ class Task < ApplicationRecord
     self.done = true
     save
   end
-  def undone!
-    self.done = true
-    save
-  end
+
 end
