@@ -1,0 +1,100 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass here: https://sass-lang.com/
+.project-card
+  +dfc
+  img 
+    display: inline-block
+    width: 20px
+  .project-header
+    +df
+    align-items: center
+    justify-content: space-between
+    background: #047CEA
+    width: 100%
+    height: 66px
+    padding: 0 40px
+    .title
+      width: 90%
+      h1 
+        font-size: 1.6rem
+        color: #fff
+    .manage-btn
+.add-new-task
+  +df
+  justify-content: space-around
+  background: #ddd
+  padding: 10px
+  width: 100%
+  border-radius: 0 0 10px 10px
+form#new_task
+  +df
+  justify-content: space-around
+  width: 100%
+  img
+    margin-right: 10px
+  .field
+    width: 100%
+    +df
+    justify-content: space-around
+    border: 1px solid #ccc
+    border-radius: 10px
+    label
+    input#task_name
+      width: 90%
+      border: none
+      height: 42px
+      outline: none
+      border-radius: 3px 0 0 3px
+      text-indent: 15px
+
+
+
+.project-tasks
+  +dfc
+  .task-item
+    +df
+    justify-content: space-between
+    align-items: center
+    border-bottom: 1px solid #ccc
+    padding: 6px 30px
+    +mt(.2s)
+    &:hover
+      background: rgba(#f1f2f3, 19%)
+      .manage-btn
+        opacity: 1
+    .name
+      +df
+      align-items: center
+      width: 89%  
+      color: #555
+    .manage-btn
+      +df
+      align-items: center
+      opacity: 0  
+      +mt(.2s)
+      img
+        height: 20px
+        width: auto
+        padding: 0 10px  
+  .done_task
+    color: #999
+    img
+      opacity: .2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

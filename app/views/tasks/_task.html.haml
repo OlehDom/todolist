@@ -1,0 +1,34 @@
+.task-item
+  .name
+    - if task.done_at?
+      %p.done_task
+        = link_to (image_tag 'check'), done_project_task_path(@project, task.id), method: :patch
+        %stike
+
+          = task.name
+    - else
+      = link_to (image_tag 'check'), undone_project_task_path(@project, task.id), method: :patch
+      %p
+        = task.name
+  .manage-btn
+    = link_to edit_project_task_path(@project, task.id) do
+      = image_tag 'edit'
+    \|
+    = link_to project_task_path(@project, task.id), method: :delete do 
+      = image_tag 'delete'
+
+
+
+-# = form_for [@project, @project.tasks.build] do |f|
+-# = form_for @project.tasks, url: project.tasks, action: :update, method: :put, html: { id: 'edit-subcomment', class: 'hidden' } do |f|
+-#   -# - if @task.errors.any?
+-#   -#   #error_explanation
+-#   -#     %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+-#   -#     %ul
+-#   -#       - @task.errors.full_messages.each do |message|
+-#   -#         %li= message
+
+-#   = image_tag 'plus'  
+-#   .field
+-#     = f.text_field :name, placeholder: 'Start typing here to create task'
+-#     = f.submit 'Save'
