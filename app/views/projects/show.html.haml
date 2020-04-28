@@ -11,11 +11,9 @@
       -#   %b Status:
       -#   = @project.status
     .manage-btn
-      = link_to edit_project_path(@project) do
-        = image_tag 'edit'
+      = link_to(image_tag 'edit'), edit_project_path(@project)
       \|
-      = link_to projects_path do 
-        = image_tag 'delete'
+      = link_to(image_tag 'delete'), projects_path
   .project-tasks
     = render @project.tasks
   .add-new-task
