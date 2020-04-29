@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks do
       member do
-        patch :done
+        put :completed
+        put :uncompleted
       end
     end
   end
+
 end

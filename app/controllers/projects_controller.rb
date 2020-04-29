@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_tasks = @project.tasks.order('completed ASC, name')
   end
 
   # GET /projects/new

@@ -1,20 +1,19 @@
 .task-item
   .name
-    - if task.done_at?
-      %p.done_task
-        = link_to (image_tag 'check'), done_project_task_path(@project, task.id), method: :patch
+    - if task.completed?
+      %p
+        = link_to 'UnDone', uncompleted_project_task_path(@project, task.id), method: :put
         %stike
           = task.name
     - else
-      = link_to (image_tag 'check'), undone_project_task_path(@project, task.id), method: :patch
-      %p
+      = link_to 'Done', completed_project_task_path(@project, task.id), method: :put
+      %p.done_task
         = task.name
   .manage-btn
-    = link_to edit_project_task_path(@project, task.id) do
-      = image_tag 'edit'
+    = link_to (image_tag 'edit'), edit_project_task_path(@project, task.id)
     \|
-    = link_to project_task_path(@project, task.id), method: :delete do 
-      = image_tag 'delete'
+    = link_to (image_tag 'delete'), project_task_path(@project, task.id), method: :delete
+      
 
 
 -# = form_for [@project, @project.tasks.build] do |f|

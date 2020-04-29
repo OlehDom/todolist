@@ -9,13 +9,13 @@
         = @project.name
       -# %p
       -#   %b Status:
-      -#   = @project.status
+        = @project.status
     .manage-btn
-      = link_to(image_tag 'edit'), edit_project_path(@project)
+      = link_to (image_tag 'edit'), edit_project_path(@project)
       \|
-      = link_to(image_tag 'delete'), projects_path
+      = link_to (image_tag 'delete'), projects_path
   .project-tasks
-    = render @project.tasks
+    = render @project_tasks
   .add-new-task
     = render 'tasks/form'
     

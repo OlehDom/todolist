@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_project
-  before_action :set_task, except: [:create, :edit]
+  before_action :set_task, except: [:create]
 
   # GET /tasks/new
   def new
@@ -54,13 +54,13 @@ class TasksController < ApplicationController
     #   format.json { head :no_content }
   end
 
-  def done
-    @task.update_attribute(:done_at, Time.now)
+  def completed
+    @task.update(completed: true)
     redirect_to @project
   end
 
-  def undone
-    @task.update_attribute(:done_at, Time.now)
+  def uncompleted
+    @task.update(completed: false)
     redirect_to @project
   end
   private
