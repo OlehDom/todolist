@@ -1,13 +1,15 @@
 .task-item
   .name
     - if task.completed?
-      %p
-        = link_to 'UnDone', uncompleted_project_task_path(@project, task.id), method: :put
+      .status.done_task
+        = link_to (image_tag 'complete'), uncompleted_project_task_path(@project, task.id), method: :put
+      %p.done_task
         %stike
           = task.name
     - else
-      = link_to 'Done', completed_project_task_path(@project, task.id), method: :put
-      %p.done_task
+      .status
+        = link_to (image_tag 'complete'), completed_project_task_path(@project, task.id), method: :put
+      %p
         = task.name
   .manage-btn
     = link_to (image_tag 'edit'), edit_project_task_path(@project, task.id)
