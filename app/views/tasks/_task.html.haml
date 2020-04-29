@@ -2,13 +2,13 @@
   .name
     - if task.completed?
       .status.done_task
-        = link_to 'Undone', uncompleted_project_task_path(@project, task.id), method: :put
+        = link_to 'Undone', uncompleted_project_task_path(@project, task.id), method: :put, class: 'btn done'
       %p.done_task
         %stike
           = task.name
     - else
       .status
-        = link_to 'Done', completed_project_task_path(@project, task.id), method: :put
+        = link_to 'Done', completed_project_task_path(@project, task.id), method: :put, class: 'btn done'
       %p
         = task.name
   .manage-btn
