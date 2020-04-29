@@ -2,19 +2,19 @@
   .name
     - if task.completed?
       .status.done_task
-        = link_to fa_icon("check-circle"), uncompleted_project_task_path(@project, task.id), method: :put
+        = link_to 'unCopmlete', uncompleted_project_task_path(@project, task.id), method: :put
       %p.done_task
         %stike
           = task.name
     - else
       .status
-        = link_to fa_icon("circle"), completed_project_task_path(@project, task.id), method: :put
+        = link_to 'Complete', completed_project_task_path(@project, task.id), method: :put
       %p
         = task.name
   .manage-btn
-    = link_to fa_icon("edit"), edit_project_task_path(@project, task.id)
+    = link_to 'edit', edit_project_task_path(@project, task.id)
     \|
-    = link_to fa_icon("trash"), project_task_path(@project, task.id), method: :delete
+    = link_to 'delete', project_task_path(@project, task.id), method: :delete
       
 
 

@@ -8,9 +8,9 @@
       %h1
         = @project.name
     .manage-btn
-      = link_to fa_icon("edit"), edit_project_path(@project)
+      = link_to 'Edit', edit_project_path(@project)
       \|
-      = link_to fa_icon("trash"), projects_path, method: :delete
+      = link_to 'Delete', projects_path, method: :delete
   .project-tasks
     = render @project_tasks
   .add-new-task
