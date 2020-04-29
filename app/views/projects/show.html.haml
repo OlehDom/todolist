@@ -7,10 +7,13 @@
     .title
       %h1
         = @project.name
+      -# %p
+      -#   %b Status:
+        = @project.status
     .manage-btn
-      = link_to fa_icon("edit"), edit_project_path(@project)
+      = link_to 'edit', edit_project_path(@project), class: 'btn edit'
       \|
-      = link_to fa_icon("trash-alt"), projects_path, method: :delete
+      = link_to 'delete', projects_path, class: 'btn delete'
   .project-tasks
     = render @project_tasks
   .add-new-task
