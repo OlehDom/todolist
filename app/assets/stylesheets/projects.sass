@@ -1,14 +1,8 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass here: https://sass-lang.com/
 .project-card
   display: flex
   flex-direction: column
   border: 1px solid #047CEA
   border-radius: 10px
-  img 
-    display: inline-block
-    width: 20px
   .project-header
     display: -webkit-flex
     display: -moz-flex
@@ -27,7 +21,6 @@
       h1 
         font-size: 1.6rem
         color: #fff
-    .manage-btn
 .add-new-task
   display: -webkit-flex
   display: -moz-flex
@@ -122,9 +115,20 @@ form#new_task
     opacity: 1
 
 
+.edit-task
+  .field
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    flex-direction: column
+    align-items: center
+    input 
+      width: 100%
 
-
-
+    button, input[type="submit"]
+      margin-top: 30px
 
 
 

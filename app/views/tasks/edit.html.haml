@@ -1,3 +1,4 @@
 %h1 Editing task
-= render 'form'
+.edit-task
+  = render partial: 'form', locals: { task: @task }
 

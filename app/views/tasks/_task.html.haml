@@ -11,6 +11,7 @@
         = link_to 'Done', completed_project_task_path(@project, task.id), method: :put, class: 'btn done'
       %p
         = task.name
+        -# = render partial: 'tasks/form', locals: { task: task }
   .manage-btn
     = link_to 'Edit', edit_project_task_path(@project, task.id), class: 'btn edit '
     \|

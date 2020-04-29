@@ -1,15 +1,10 @@
 %p#notice= notice
 
-
-
 .project-card
   .project-header
     .title
       %h1
         = @project.name
-      -# %p
-      -#   %b Status:
-        = @project.status
     .manage-btn
       = link_to 'edit', edit_project_path(@project), class: 'btn edit'
       \|
@@ -17,6 +12,6 @@
   .project-tasks
     = render @project_tasks
   .add-new-task
-    = render 'tasks/form'
+    = render partial: 'tasks/form', locals: { task: @project.tasks.build }
     
 
