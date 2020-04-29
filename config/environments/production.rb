@@ -52,7 +52,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
-
+  config.action_dispatch.x_sendfile_header = nil
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
