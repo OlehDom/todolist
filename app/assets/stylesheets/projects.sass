@@ -39,6 +39,8 @@ form#new_task
   display: -o-flex
   display: flex
   justify-content: space-around
+  flex-direction: column
+  text-align: center
   width: 100%
   img
     margin-right: 10px
@@ -60,10 +62,16 @@ form#new_task
       outline: none
       border-radius: 3px 0 0 3px
       text-indent: 15px
+      margin-bottom: 30px
+  .input.datetime.optional.task_deadline
+    margin-top: 10px
+    position: absolute
+    margin-top: 48px
+    label
+      margin-right: 10px
 
 
-
-.project-tasks
+#tasks
   display: flex
   flex-direction: column
   .task-item
@@ -88,7 +96,7 @@ form#new_task
       display: flex
       align-items: center
       width: 89%  
-      color: #555
+      // color: #555
       position: relative
       form#edit-subcomment
         width: 100%
@@ -101,6 +109,19 @@ form#new_task
           display: flex
         input
           width: 100%
+      p 
+        display: -webkit-flex
+        display: -moz-flex
+        display: -ms-flex
+        display: -o-flex
+        display: flex
+        flex-direction: column
+        color: #999
+        span
+          font-size: .84rem
+          color: red
+          span
+            color: #333
     .manage-btn
       display: -webkit-flex
       display: -moz-flex
