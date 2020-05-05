@@ -1,20 +1,13 @@
 %h3 Listing projects
+#project
+  - @projects.each do |project|
+    .task-item
+      .name
+        = link_to project.name, project
+      .manage-btn
+        = link_to 'Show', project, class: 'btn done'
+        = link_to 'Edit', edit_project_path(project), class: 'btn edit '
+        = link_to 'Destroy', project, class: 'btn delete', method: :delete, data: { confirm: 'Are you sure?' }
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @projects.each do |project|
-      -# = render @project_tasks
-      %tr
-        %td= link_to project.name, project
-        %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Project', new_project_path, class: 'btn add-task'
