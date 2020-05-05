@@ -6,7 +6,7 @@
       %p.done_task
         -if task.deadline?
           %span
-            Deadline set on:
+            Deadline:
             %span
               = task.deadline.strftime("%d.%m.%y | %H:%M")
         = task.name
@@ -16,7 +16,7 @@
       %p
         -if task.deadline?
           %span
-            Deadline set on:
+            Deadline:
             %span
               = task.deadline.strftime("%d.%m.%y | %H:%M")
         = task.name
