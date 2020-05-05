@@ -1,5 +1,4 @@
-
-.task-item
+.task-item{:class => "#{"done_task" if task.completed?}"}
   .name
     - if task.completed?
       .status.done_task
@@ -9,7 +8,7 @@
           %span
             Deadline set on:
             %span
-              = task.deadline
+              = task.deadline.strftime("%d.%m.%y | %H:%M")
         = task.name
     - else
       .status
@@ -19,7 +18,7 @@
           %span
             Deadline set on:
             %span
-              = task.deadline
+              = task.deadline.strftime("%d.%m.%y | %H:%M")
         = task.name
   .manage-btn
     = link_to 'Edit', edit_project_task_path(@project, task.id), class: 'btn edit '

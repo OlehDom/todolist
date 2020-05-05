@@ -1,7 +1,7 @@
 .project-card
   display: flex
   flex-direction: column
-  border: 1px solid #047CEA
+  border: 1px solid #34495e
   border-radius: 10px
   .project-header
     display: -webkit-flex
@@ -11,14 +11,14 @@
     display: flex
     align-items: center
     justify-content: space-between
-    background: #047CEA
+    background: #34495e
     width: 100%
     height: 66px
     padding: 0 40px
     border-radius: 8px
     .title
       width: 84%
-      h1 
+      h2
         font-size: 1.6rem
         color: #fff
 .add-new-task
@@ -74,6 +74,7 @@ form#new_task
 #tasks
   display: flex
   flex-direction: column
+  margin: 10px 0
   .task-item
     display: -webkit-flex
     display: -moz-flex
@@ -82,8 +83,10 @@ form#new_task
     display: flex
     justify-content: space-between
     align-items: center
-    border-bottom: 1px solid #ccc
-    padding: 6px 30px
+    border: 1px solid #ccc
+    padding: 10px 15px
+    margin: 3px 10px
+    border-radius: 5px
     &:hover
       background: rgba(#f1f2f3, 19%)
       .manage-btn
@@ -96,7 +99,6 @@ form#new_task
       display: flex
       align-items: center
       width: 89%  
-      // color: #555
       position: relative
       form#edit-subcomment
         width: 100%
@@ -116,12 +118,23 @@ form#new_task
         display: -o-flex
         display: flex
         flex-direction: column
-        color: #999
+        color: #333
+        width: 100%
         span
+          width: 202px
+          text-align: center
           font-size: .84rem
-          color: red
-          span
-            color: #333
+          background: #C70039
+          color: #fff
+          border-radius: 4px
+          padding: 2px
+          margin-top: -5px
+      p.done_task
+        color: #999
+        text-decoration: line-through
+        span 
+          span 
+            text-decoration: none
     .manage-btn
       display: -webkit-flex
       display: -moz-flex
@@ -129,23 +142,16 @@ form#new_task
       display: -o-flex
       display: flex
       align-items: center
-      opacity: 0  
-      
-      img
-        height: 20px
-        width: auto
-        padding: 0 10px  
+      opacity: 0   
 
-.done_task
-  color: #ddd
-  text-decoration: line-through
+.done_task.task-item
+  background: rgba(#f1f2f3, 19%)
+  .manage-btn
+    opacity: 1!important
 .status
+  width: 85px
+  text-align: center
   margin-right: 10px
-  img
-    opacity: .2
-.status.done_task
-  img
-    opacity: 1
 
 
 .edit-task
@@ -159,12 +165,8 @@ form#new_task
     align-items: center
     input 
       width: 100%
-
     button, input[type="submit"]
       margin-top: 30px
-
-
-
 
 
 

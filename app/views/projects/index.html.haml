@@ -1,4 +1,4 @@
-%h1 Listing projects
+%h3 Listing projects
 
 %table
   %thead
@@ -10,6 +10,7 @@
 
   %tbody
     - @projects.each do |project|
+      -# = render @project_tasks
       %tr
         %td= link_to project.name, project
         %td= link_to 'Show', project
