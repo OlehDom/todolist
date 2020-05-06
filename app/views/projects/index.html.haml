@@ -33,7 +33,6 @@
                   = link_to 'х', project_task_path(project, project_task.id), class: 'btn delete', method: :delete
               .name
                 = project_task.name
-
       .add-new-task
         = simple_form_for [project, @task] do |f|
           .field

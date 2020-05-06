@@ -16,7 +16,6 @@ class TasksController < ApplicationController
       redirect_to projects_path, notice: 'Can not be empty'
     end
   end
-
   def update
     respond_to do |format|
       if @task.update(task_params)
@@ -28,7 +27,6 @@ class TasksController < ApplicationController
       end
     end
   end
-
   def destroy
     @task = @project.tasks.find(params[:id])
     if @task.destroy

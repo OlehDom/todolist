@@ -25,19 +25,4 @@
       = link_to 'Edit', edit_project_task_path(@project, task.id), class: 'btn edit '
       \|
       = link_to 'Delete', project_task_path(@project, task.id), class: 'btn delete', method: :delete
-        
 
-
-  -# = form_for [@project, @project.tasks.build] do |f|
-  -# = form_for @project.tasks, url: project.tasks, action: :update, method: :put, html: { id: 'edit-subcomment', class: 'hidden' } do |f|
-  -#   -# - if @task.errors.any?
-  -#   -#   #error_explanation
-  -#   -#     %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-  -#   -#     %ul
-  -#   -#       - @task.errors.full_messages.each do |message|
-  -#   -#         %li= message
-
-  -#   = image_tag 'plus'  
-  -#   .field
-  -#     = f.text_field :name, placeholder: 'Start typing here to create task'
-  -#     = f.submit 'Save'
