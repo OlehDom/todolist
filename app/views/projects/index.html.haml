@@ -40,5 +40,10 @@
             = f.text_field :name, placeholder: 'Start typing here to create task'
             = f.submit '+'
           = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, end_year: Date.today.year, order: [:day, :month, :year] 
+  .project-card
+    .project-header.new-project
+      = form_for @project do |f|
+        .manage-btn
+          = f.text_field :name
+          = f.submit 'Save'
 
-  = link_to 'New ToDoLIST', new_project_path, class: 'btn add-task'
