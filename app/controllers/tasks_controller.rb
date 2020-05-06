@@ -11,16 +11,16 @@ class TasksController < ApplicationController
   def create
     @task = @project.tasks.create(task_params)
     if @task.save
-      redirect_to @project, notice: 'Task was successfully created.'
+      redirect_to projects_path, notice: 'Task was successfully created.'
     else
-      redirect_to @project, notice: 'Can not be empty'
+      redirect_to projects_path, notice: 'Can not be empty'
     end
   end
 
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @project, notice: 'Task was successfully updated.' }
+        format.html { redirect_to projects_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -32,20 +32,20 @@ class TasksController < ApplicationController
   def destroy
     @task = @project.tasks.find(params[:id])
     if @task.destroy
-      redirect_to @project
+      redirect_to projects_path
     else
-      redirect_to @project
+      redirect_to projects_path
     end
   end
 
   def completed
     @task.update(completed: true)
-    redirect_to @project
+    redirect_to projects_path
   end
 
   def uncompleted
     @task.update(completed: false)
-    redirect_to @project
+    redirect_to projects_path
   end
 
   private

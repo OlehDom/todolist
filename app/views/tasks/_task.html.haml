@@ -1,42 +1,43 @@
-.task-item{:class => "#{"done_task" if task.completed?}"}
-  .name
-    - if task.completed?
-      .status.done_task
-        = link_to 'Undone', uncompleted_project_task_path(@project, task.id), method: :put, class: 'btn done'
-      %p.done_task
-        -if task.deadline?
-          %span
-            Deadline:
+%li{ id: "task-#{task.id}" }
+  .task-item{:class => "#{"done_task" if task.completed?}"}
+    .name
+      - if task.completed?
+        .status.done_task
+          = link_to 'Undone', uncompleted_project_task_path(@project, task.id), method: :put, class: 'btn done'
+        %p.done_task
+          -if task.deadline?
             %span
-              = task.deadline.strftime("%d.%m.%y | %H:%M")
-        = task.name
-    - else
-      .status
-        = link_to 'Done', completed_project_task_path(@project, task.id), method: :put, class: 'btn done'
-      %p
-        -if task.deadline?
-          %span
-            Deadline:
+              Deadline:
+              %span
+                = task.deadline.strftime("%d.%m.%y | %H:%M")
+          = task.name
+      - else
+        .status
+          = link_to 'Done', completed_project_task_path(@project, task.id), method: :put, class: 'btn done'
+        %p
+          -if task.deadline?
             %span
-              = task.deadline.strftime("%d.%m.%y | %H:%M")
-        = task.name
-  .manage-btn
-    = link_to 'Edit', edit_project_task_path(@project, task.id), class: 'btn edit '
-    \|
-    = link_to 'Delete', project_task_path(@project, task.id), class: 'btn delete', method: :delete
-      
+              Deadline:
+              %span
+                = task.deadline.strftime("%d.%m.%y | %H:%M")
+          = task.name
+    .manage-btn
+      = link_to 'Edit', edit_project_task_path(@project, task.id), class: 'btn edit '
+      \|
+      = link_to 'Delete', project_task_path(@project, task.id), class: 'btn delete', method: :delete
+        
 
 
--# = form_for [@project, @project.tasks.build] do |f|
--# = form_for @project.tasks, url: project.tasks, action: :update, method: :put, html: { id: 'edit-subcomment', class: 'hidden' } do |f|
--#   -# - if @task.errors.any?
--#   -#   #error_explanation
--#   -#     %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
--#   -#     %ul
--#   -#       - @task.errors.full_messages.each do |message|
--#   -#         %li= message
+  -# = form_for [@project, @project.tasks.build] do |f|
+  -# = form_for @project.tasks, url: project.tasks, action: :update, method: :put, html: { id: 'edit-subcomment', class: 'hidden' } do |f|
+  -#   -# - if @task.errors.any?
+  -#   -#   #error_explanation
+  -#   -#     %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+  -#   -#     %ul
+  -#   -#       - @task.errors.full_messages.each do |message|
+  -#   -#         %li= message
 
--#   = image_tag 'plus'  
--#   .field
--#     = f.text_field :name, placeholder: 'Start typing here to create task'
--#     = f.submit 'Save'
+  -#   = image_tag 'plus'  
+  -#   .field
+  -#     = f.text_field :name, placeholder: 'Start typing here to create task'
+  -#     = f.submit 'Save'

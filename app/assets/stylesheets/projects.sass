@@ -1,7 +1,122 @@
+.project-lists
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  flex-wrap: nowrap
+  overflow-y: hidden
+  overflow-x: scroll
+  margin: 15px 0
+  padding-bottom: 20px
+  .project-card
+    max-width: 20%
+    min-width: 20%
+    margin: 0 15px
+    align-self: flex-start
+    border: 1px solid #34495e
+    border-radius: 4px
+  .project-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: #34495e
+    width: 100%
+    padding: 7px 12px
+    .title
+      width: 84%
+      h2
+        font-size: .9rem
+        color: #fff
+    .manage-btn
+      display: -webkit-flex
+      display: -moz-flex
+      display: -ms-flex
+      display: -o-flex
+      display: flex
+      align-self: flex-start
+      .btn
+        margin: 0 0 0 9px
+#tasks
+  overflow-y: scroll
+  overflow-x: hidden
+  max-height: 75vh
+  background: #fff
+  padding: 8px
+  .task-item
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    border: 1px solid #ccc
+    border-radius: 5px
+    margin: 5px 0
+    .name
+      padding: 8px 10px
+    &:hover
+      .manage-btn
+        .status
+          opacity: 1
+          display: inline-block
+  .manage-btn
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    justify-content: space-between
+    position: relative
+    width: 100%
+    .btn
+      margin-left: 9px
+    .status
+      opacity: 0
+      display: none
+      position: absolute
+      display: -webkit-flex
+      display: -moz-flex
+      display: -ms-flex
+      display: -o-flex
+      display: flex
+      align-self: flex-end
+      right: 0
+    .dead-line
+      background-color: #119e4d
+      border-radius: 4px 0 0
+      top: -10px
+      left: -15px
+      color: #fff
+      font-size: .8rem
+      padding: 4px 3px
+      a
+        color: #fff
+    .set-deadline
+      background: #C70039
+
+
+.add-new-task
+  margin: 10px 5px
+  form#new_task
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    flex-direction: column
+    text-align: center
+    width: 100%
+    .field
+      display: flex
+      input#task_name
+        height: 33px
+        width: 90%
+        text-indent: 10px
+        border: 1px solid darken(#eee, 12%)
+        border-radius: 3px 0 0 3px
+
 form#new_project, form#new_task, form.edit_project, form.edit_task
   text-align: center
   input#project_name, input#task_name
-    width: 100%   
+    width: 80%   
     height: 40px
     border-radius: 4px
     border: none
@@ -9,6 +124,7 @@ form#new_project, form#new_task, form.edit_project, form.edit_task
     outline: none
     text-align: center
     font-size: 1rem
+    // margin-top: 20%
   .actions
     margin-top: 50px
     text-align: center
@@ -16,184 +132,13 @@ form#new_project, form#new_task, form.edit_project, form.edit_task
       width: 70%
       padding: 10px
       border-radius: 4px
-.project-card
-  display: flex
-  flex-direction: column
-  border: 1px solid #34495e
-  border-radius: 10px
-  .project-header
-    display: -webkit-flex
-    display: -moz-flex
-    display: -ms-flex
-    display: -o-flex
-    display: flex
-    align-items: center
-    justify-content: space-between
-    background: #34495e
-    width: 100%
-    height: 66px
-    padding: 0 40px
-    border-radius: 8px
-    .title
-      width: 84%
-      h2
-        font-size: 1.6rem
-        color: #fff
-.add-new-task
-  display: -webkit-flex
-  display: -moz-flex
-  display: -ms-flex
-  display: -o-flex
-  display: flex
-  justify-content: space-around
-  background: #ddd
-  padding: 10px
-  width: 100%
-  border-radius: 0 0 10px 10px
-form#new_task
-  display: -webkit-flex
-  display: -moz-flex
-  display: -ms-flex
-  display: -o-flex
-  display: flex
-  justify-content: space-around
-  flex-direction: column
-  text-align: center
-  width: 100%
-  img
-    margin-right: 10px
-  .field
-    width: 100%
-    display: -webkit-flex
-    display: -moz-flex
-    display: -ms-flex
-    display: -o-flex
-    display: flex
-    justify-content: space-around
-    border: 1px solid #ccc
-    border-radius: 10px
-    label
-    input#task_name
-      width: 90%
-      border: none
-      height: 42px
-      outline: none
-      border-radius: 3px 0 0 3px
-      text-indent: 15px
-      margin-bottom: 30px
-  .input.datetime.optional.task_deadline
-    margin-top: 10px
-    position: absolute
-    margin-top: 48px
-    label
-      margin-right: 10px
 
-
-#tasks, #project
-  display: flex
-  flex-direction: column
-  margin: 10px 0
-  .task-item
-    display: -webkit-flex
-    display: -moz-flex
-    display: -ms-flex
-    display: -o-flex
-    display: flex
-    justify-content: space-between
-    align-items: center
-    border: 1px solid #ccc
-    padding: 10px 15px
-    margin: 3px 10px
-    border-radius: 5px
-    &:hover
-      background: rgba(#f1f2f3, 19%)
-      .manage-btn
-        opacity: 1
-    .name
-      display: -webkit-flex
-      display: -moz-flex
-      display: -ms-flex
-      display: -o-flex
-      display: flex
-      align-items: center
-      width: 89%  
-      position: relative
-      form#edit-subcomment
-        width: 100%
-        position: absolute
-        .field
-          display: -webkit-flex
-          display: -moz-flex
-          display: -ms-flex
-          display: -o-flex
-          display: flex
-        input
-          width: 100%
-      p 
-        display: -webkit-flex
-        display: -moz-flex
-        display: -ms-flex
-        display: -o-flex
-        display: flex
-        flex-direction: column
-        color: #333
-        width: 100%
-        font-size: 1.15rem
-        span
-          width: 155px
-          text-align: center
-          font-size: .8rem
-          background: #C70039
-          color: #f2f2f2
-          border-radius: 4px
-          padding: 2px
-          margin-top: -5px
-      p.done_task
-        color: #999
-        text-decoration: line-through
-        span 
-          span 
-            text-decoration: none
-    .manage-btn
-      display: -webkit-flex
-      display: -moz-flex
-      display: -ms-flex
-      display: -o-flex
-      display: flex
-      align-items: center
-      opacity: 0   
-
-.done_task.task-item
-  background: rgba(#f1f2f3, 19%)
-  .manage-btn
-    opacity: 1!important
-.status
-  width: 85px
-  text-align: center
-  margin-right: 10px
-
-
-.edit-task
-  .field
-    display: -webkit-flex
-    display: -moz-flex
-    display: -ms-flex
-    display: -o-flex
-    display: flex
-    flex-direction: column
-    align-items: center
-    input 
-      width: 100%
-    button, input[type="submit"]
-      margin-top: 30px
-
-#project
-  .task-item
-    .manage-btn
-      opacity: 1
-  a
-    display: block
-    width: 100%
-    font-size: 1.25rem
-
-
+.done_task
+  .name
+    padding-top: 20px
+    color: #999
+    text-decoration: line-through
+    text-align: left
+    .status
+      a 
+        text-decoration: none

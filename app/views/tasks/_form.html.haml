@@ -1,5 +1,5 @@
 = simple_form_for [@project, task] do |f|
   .field
     = f.text_field :name, placeholder: 'Start typing here to create task'
-    = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, end_year: Date.today.year, order: [:day, :month, :year] 
     = f.submit '+ Add'
+  = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, end_year: Date.today.year, order: [:day, :month, :year] 

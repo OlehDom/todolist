@@ -6,10 +6,12 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     .wraper
       %h1
         = link_to 'ToDoLIST', root_path
+        %span
+          = link_to 'New ToDoLIST', new_project_path, class: 'btn add-task'
 
       = yield

@@ -1,13 +1,44 @@
-%h3 Listing projects
-#project
+.project-lists
   - @projects.each do |project|
-    .task-item
-      .name
-        = link_to project.name, project
-      .manage-btn
-        = link_to 'Show', project, class: 'btn done'
-        = link_to 'Edit', edit_project_path(project), class: 'btn edit '
-        = link_to 'Destroy', project, class: 'btn delete', method: :delete, data: { confirm: 'Are you sure?' }
+    .project-card
+      .project-header
+        .title
+          %h2
+            = project.name
+        .manage-btn
+          = link_to 'edit', edit_project_path(project), class: 'btn edit'
+          = link_to 'x', project_path(project), method: :delete, class: 'btn delete'
+      #tasks
+        .groupe-list
+          - project.tasks.order('completed ASC, name').each do |project_task|
+            .task-item{:class => "#{"done_task" if project_task.completed?}"}
+              .manage-btn
+                -if project_task.deadline?
+                  .dead-line{:class => "#{"set-deadline" if project_task.deadline?}"}
+                    %p
+                      Deadline:
+                      %span
+                        = project_task.deadline.strftime("%d.%m.%y")
+                - else
+                  .dead-line
+                    %p
+                      %span
+                        = link_to 'Add deadline', edit_project_task_path(project, project_task.id)
+                .status
+                  - if project_task.completed?
+                    = link_to 'Undone', uncompleted_project_task_path(project, project_task.id), method: :put, class: 'btn done'
+                  - else
+                    = link_to 'Done', completed_project_task_path(project, project_task.id), method: :put, class: 'btn done'
+                  = link_to 'Edit', edit_project_task_path(project, project_task.id), class: 'btn edit '
+                  = link_to 'х', project_task_path(project, project_task.id), class: 'btn delete', method: :delete
+              .name
+                = project_task.name
 
-%br/
-= link_to 'New Project', new_project_path, class: 'btn add-task'
+      .add-new-task
+        = simple_form_for [project, @task] do |f|
+          .field
+            = f.text_field :name, placeholder: 'Start typing here to create task'
+            = f.submit '+'
+          = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, end_year: Date.today.year, order: [:day, :month, :year] 
+
+  = link_to 'New ToDoLIST', new_project_path, class: 'btn add-task'
