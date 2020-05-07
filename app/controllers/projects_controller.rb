@@ -60,6 +60,6 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
     def project_params
-      params.require(:project).permit(:name, :status, :task_id)
+      params.require(:project).permit(:name, :status, :position, :task_id)
     end
 end

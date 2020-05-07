@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         put :completed
         put :uncompleted
       end
+      post :position, on: :collection
     end
   end
 

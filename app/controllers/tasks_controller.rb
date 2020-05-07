@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_project
-  before_action :set_task, except: [:create]
+  before_action :set_task, except: [:create, :position]
 
   def new
     @task = Task.new
@@ -45,7 +45,12 @@ class TasksController < ApplicationController
     @task.update(completed: false)
     redirect_to projects_path
   end
-
+  def position
+    params[:task].each_with_index do |id, index|
+      @project.tasks.where(id: id).update(position: index + 1)
+    end
+    render body: nil
+  end
   private
     def set_project
       @project = Project.find(params[:project_id])
@@ -55,6 +60,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :deadline, :position)
+      params.require(:task).permit(:name, :deadline, :position, :project_id)
     end
 end

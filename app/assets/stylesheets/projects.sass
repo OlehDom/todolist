@@ -4,15 +4,16 @@
   display: -ms-flex
   display: -o-flex
   display: flex
-  flex-wrap: nowrap
-  overflow-y: hidden
-  overflow-x: scroll
+  // TRELO_STYLE
+  // flex-wrap: nowrap
+  // overflow-y: hidden
+  // overflow-x: scroll
+  flex-direction: column
   margin: 15px 0
   padding-bottom: 20px
   .project-card
-    max-width: 20%
-    min-width: 20%
-    margin: 0 15px
+    width: 100%
+    margin: 15px
     align-self: flex-start
     border: 1px solid #34495e
     border-radius: 4px
@@ -38,18 +39,21 @@
       .btn
         margin: 0 0 0 9px
 #tasks
-  overflow-y: scroll
-  overflow-x: hidden
-  max-height: 75vh
+  // TRELO_STYLE
+  // overflow-y: scroll
+  // overflow-x: hidden
+  // max-height: 75vh
   background: #fff
   padding: 8px
   .task-item
-    display: flex
+    cursor: move
+    // display: flex
     justify-content: space-between
     flex-direction: column
     border: 1px solid #ccc
     border-radius: 5px
     margin: 5px 0
+    background: #fff
     .name
       padding: 8px 10px
     &:hover
@@ -71,14 +75,13 @@
     .status
       opacity: 0
       display: none
-      position: absolute
       display: -webkit-flex
       display: -moz-flex
       display: -ms-flex
       display: -o-flex
       display: flex
       align-self: flex-end
-      right: 0
+      margin-right: 15px
     .dead-line
       background-color: #119e4d
       border-radius: 4px 0 0
@@ -94,7 +97,8 @@
 
 
 .add-new-task
-  margin: 10px 5px
+  background: #ccc  
+  padding: 10px 0
   form#new_task
     display: -webkit-flex
     display: -moz-flex
@@ -102,10 +106,12 @@
     display: -o-flex
     display: flex
     flex-direction: column
-    text-align: center
     width: 100%
     .field
+      width: 100%
       display: flex
+      align-items: center
+      justify-content: center
       input#task_name
         height: 33px
         width: 90%
