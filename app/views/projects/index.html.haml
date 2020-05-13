@@ -1,5 +1,5 @@
 .project-lists{ "data-update-url" => "#{position_projects_url(@project)}" }
-  - @projects.each do |project|
+  - @projects.order('position').each do |project|
     .project-card{ id: "project-#{project.id}" }
       .project-header
         .title
