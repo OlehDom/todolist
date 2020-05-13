@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "projects#index"
 
   resources :projects do
+    post :position, on: :collection
     resources :tasks do
       member do
         put :completed
@@ -10,5 +11,4 @@ Rails.application.routes.draw do
       post :position, on: :collection
     end
   end
-
 end

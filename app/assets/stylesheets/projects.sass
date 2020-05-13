@@ -1,3 +1,6 @@
+.ui-sortable-helper
+  filter: blur(2px) grayscale(10)
+  background: #f1f2f3
 .project-lists
   display: -webkit-flex
   display: -moz-flex
@@ -5,19 +8,21 @@
   display: -o-flex
   display: flex
   // TRELO_STYLE
-  // flex-wrap: nowrap
-  // overflow-y: hidden
-  // overflow-x: scroll
-  flex-direction: column
-  margin: 15px 0
+  flex-wrap: nowrap
+  overflow-y: hidden
+  overflow-x: scroll
+  min-height: calc(100vh - 95px)
+  margin-top: 20px
   padding-bottom: 20px
   .project-card
-    width: 100%
-    margin: 15px
+    min-width: 21%
+    max-width: 21%
+    margin: 0 15px
     align-self: flex-start
     border: 1px solid #34495e
     border-radius: 4px
   .project-header
+    cursor: ew-resize 
     display: flex
     align-items: center
     justify-content: space-between
@@ -40,13 +45,13 @@
         margin: 0 0 0 9px
 #tasks
   // TRELO_STYLE
-  // overflow-y: scroll
-  // overflow-x: hidden
-  // max-height: 75vh
-  background: #fff
+  overflow-y: scroll
+  overflow-x: hidden
+  max-height: 75vh
+  background: #f1f2f3
   padding: 8px
   .task-item
-    cursor: move
+    cursor: ns-resize
     // display: flex
     justify-content: space-between
     flex-direction: column

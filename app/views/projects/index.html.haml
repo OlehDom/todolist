@@ -1,6 +1,6 @@
-.project-lists
+.project-lists{ "data-update-url" => "#{position_projects_url(@project)}" }
   - @projects.each do |project|
-    .project-card
+    .project-card{ id: "project-#{project.id}" }
       .project-header
         .title
           %h2
@@ -25,6 +25,7 @@
                       %p
                         %span
                           = link_to 'Add deadline', edit_project_task_path(project, project_task.id)
+                  .option
                   .status
                     - if project_task.completed?
                       = link_to 'Undone', uncompleted_project_task_path(project, project_task.id), method: :put, class: 'btn done'
@@ -39,7 +40,7 @@
           .field
             = f.text_field :name, placeholder: 'Start typing here to create task'
             = f.submit '+'
-          = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, end_year: Date.today.year, order: [:day, :month, :year] 
+          = f.input :deadline, as: :datetime,:include_blank => true,  start_year: Date.today.year + 10, discard_hour: true, end_year: Date.today.year, order: [:day, :month, :year] 
   .project-card
     .project-header.new-project
       = form_for @project do |f|

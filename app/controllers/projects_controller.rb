@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.all
+    @projects = Project.order('position')
     @task = Task.new
     @project = Project.new
 
@@ -51,7 +51,12 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def position
+    params[:project].each_with_index do |id, index|
+      Project.where(id: id).update(position: index + 1)
+    end
+    render name: nil
+  end
   private
     # def set_task
     #   @task = @project.tasks.find(params[:task_id])
@@ -60,6 +65,6 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
     def project_params
-      params.require(:project).permit(:name, :status, :position, :task_id)
+      params.require(:project).permit(:name, :status, :position, :task_id, :project_id)
     end
 end

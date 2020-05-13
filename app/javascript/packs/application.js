@@ -11,6 +11,7 @@ require("channels")
 require("jquery-ui")
 
 $(document).on('turbolinks:load', function() {
+
   jQuery(function() {
     return $('.groupe-list').sortable({
       axis: 'y',
@@ -20,6 +21,16 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
+  jQuery(function() {
+    return $('.project-lists').sortable({
+      axis: 'x',
+      update: function() {
+        return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+      }
+    })
+  })
+
+    $(".project-card").last().removeClass( "ui-sortable-handle" );
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference
