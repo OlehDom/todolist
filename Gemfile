@@ -17,7 +17,7 @@ gem 'uglifier', '~> 4.2'
 # gem 'image_processing', '~> 1.2'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'simple_form', '~> 4.1'
+gem 'simple_form', '~> 5.0'
 gem 'acts_as_list'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
